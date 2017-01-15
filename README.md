@@ -10,14 +10,9 @@ You need [node >= 0.10][node], [npm] and [grunt >= 0.4][Grunt] installed
 and your project build managed by a [Gruntfile] with the necessary modules
 listed in [package.json].  If you haven't used Grunt before, be sure to
 check out the [Getting Started] guide, as it explains how to create a
-Gruntfile as well as install and use Grunt plugins.  Once you're familiar
-with that process, you may ensure native dependencies of this plugin and
-install it:
+Gruntfile as well as install and use Grunt plugins.
 
-1. Install pre-requisites: [Graphviz](http://www.graphviz.org/) and Java
-   depending on your operating system
-
-2. Install the Grunt task:
+Install the Grunt task:
 
 ```shell
 $ npm install grunt-move --save-dev
@@ -165,7 +160,7 @@ your code using Grunt.
 
 ## Release History
 
- * 2017-01-15   v0.0.2-4 Improve documentation
+ * 2017-01-15   v0.0.2-5 Improve documentation
  * 2017-01-15   v0.0.1   Initial release
 
 ## License
