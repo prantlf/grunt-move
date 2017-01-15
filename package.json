@@ -1,0 +1,61 @@
+{
+  "name": "grunt-move",
+  "description": "Grunt task for moving and renaming files and folders",
+  "version": "0.0.1",
+  "homepage": "https://github.com/prantlf/grunt-move",
+  "author": {
+    "name": "Ferdinand Prantl",
+    "email": "prantlf@gmail.com",
+    "url": "http://prantl.tk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/prantlf/grunt-move.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantlf/grunt-move/issues"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/grunt-move/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "main": "tasks/move.js",
+  "scripts": {
+    "test": "grunt",
+    "check_coverage": "GRUNT_MOVE_COVERAGE=1 grunt",
+    "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3"
+  },
+  "devDependencies": {
+    "async": "~2.1.4",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt-coveralls": "^1.0.1",
+    "grunt-istanbul": "^0.7.2",
+    "jshint-stylish": "^2.2.1",
+    "time-grunt": "^1.4.0"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "move",
+    "rename",
+    "file",
+    "folder",
+    "filesystem"
+  ],
+  "files": [
+    "tasks"
+  ]
+}
