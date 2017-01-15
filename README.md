@@ -165,7 +165,7 @@ your code using Grunt.
 
 ## Release History
 
- * 2017-01-15   v0.0.2   Improve documentation
+ * 2017-01-15   v0.0.2-3 Improve documentation
  * 2017-01-15   v0.0.1   Initial release
 
 ## License
