@@ -77,6 +77,7 @@ grunt.initConfig({
     }
   }
 });
+```
 
 The configuration consists of `src` and `dest` property pairs.  The `src`
 property has to point to an existing source path.  The `dest` property has
@@ -114,7 +115,6 @@ succeeds, the source will be deleted. Grunt will continue executing
 other tasks then.
 
 ### More Usage Examples
-
 
 ```js
   move: {
@@ -155,6 +155,7 @@ other tasks then.
     }
   }
 });
+```
 
 ## Contributing
 
@@ -164,6 +165,7 @@ your code using Grunt.
 
 ## Release History
 
+ * 2017-01-15   v0.0.2   Improve documentation
  * 2017-01-15   v0.0.1   Initial release
 
 ## License
