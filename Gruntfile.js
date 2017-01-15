@@ -21,7 +21,7 @@ module.exports = function (grunt) {
       options: {
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
-      },
+      }
     },
 
     copy: {
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         cwd: 'test/work/move_with_wildcard_and_cwd/source',
         expand: true,
         src: ['*'],
-        dest: 'test/work/move_with_wildcard_and_cwd/target/',
+        dest: 'test/work/move_with_wildcard_and_cwd/target/'
       },
       move_directory: {
         src: 'test/work/move_directory/source',
