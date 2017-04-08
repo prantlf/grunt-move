@@ -1,7 +1,7 @@
 {
   "name": "grunt-move",
   "description": "Grunt task for moving and renaming files and directories",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/prantlf/grunt-move",
   "author": {
     "name": "Ferdinand Prantl",
@@ -32,7 +32,7 @@
     "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls"
   },
   "dependencies": {
-    "async": "~2.1.4",
+    "async": "~2.3.0",
     "chalk": "^1.1.3"
   },
   "devDependencies": {

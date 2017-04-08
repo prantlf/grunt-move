@@ -2,7 +2,7 @@
 
 [![NPM Downloads](https://nodei.co/npm/grunt-move.png?downloads=true&stars=true)](https://www.npmjs.com/package/grunt-move)
 
-> This module provides a grunt multi-task for moving and renaming files and directories.
+This module provides a grunt multi-task for moving and renaming files and directories.
 
 ## Installation
 
@@ -160,6 +160,7 @@ your code using Grunt.
 
 ## Release History
 
+ * 2017-04-09   v0.0.6   Fix async dependency
  * 2017-01-15   v0.0.2-5 Improve documentation
  * 2017-01-15   v0.0.1   Initial release
 
