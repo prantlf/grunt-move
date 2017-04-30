@@ -170,53 +170,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-coveralls');
   grunt.loadNpmTasks('grunt-istanbul');
 
-  grunt.registerTask('continue:clear-warnings',
-      'Clears warnings remembered by grunt-continue.', function () {
-        grunt.config.set('grunt-continue:warnings', []);
-      });
-
-  grunt.registerTask('continue:check-any-warnings',
-      'Checks if any warnings were remembered by grunt-continue.', function () {
-        var actual = grunt.config('grunt-continue:warnings') || [];
-        grunt.verbose.writeln('Some warnings were expected.');
-        if (actual.length) {
-          actual.forEach(function (warning) {
-            grunt.verbose.writeln('Actual warning: "' + warning + '".');
-          });
-          grunt.log.ok(actual.length +
-              grunt.util.pluralize(actual.length, ' warning/ warnings') +
-              ' were found.');
-        } else {
-          grunt.fail.warn('No warnings found.');
-        }
-      });
-
-  grunt.registerMultiTask('continue:check-warnings',
-      'Checks warnings remembered by grunt-continue.', function () {
-        var expected = this.data.warnings,
-            actual = grunt.config('grunt-continue:warnings') || [];
-        if (!expected) {
-          grunt.fail.warn('No expected warnings specified.');
-        }
-        grunt.verbose.writeln(expected.length +
-            grunt.util.pluralize(expected.length, ' warning/ warnings') +
-            ' were expected.');
-        actual.forEach(function (warning) {
-          grunt.verbose.writeln('Actual warning: "' + warning + '".');
-          if (expected.indexOf(warning) < 0) {
-            grunt.fail.warn('Unexpected warning: "' + warning + '".');
-          }
-        });
-        expected.forEach(function (warning) {
-          if (actual.indexOf(warning) < 0) {
-            grunt.fail.warn('Warning not found: "' + warning + '".');
-          }
-        });
-        grunt.log.ok(actual.length +
-            grunt.util.pluralize(actual.length, ' warning/ warnings') +
-            ' were expected and found.');
-      });
-
   grunt.registerTask('default', coverage ?
     ['jshint', 'clean', 'instrument', 'copy',
      'move:empty', 'move:missing', 'move:rename', 'move:move_with_rename',
