@@ -27,7 +27,7 @@
   },
   "main": "tasks/move.js",
   "scripts": {
-    "test": "grunt --verbose",
+    "test": "grunt",
     "check_coverage": "GRUNT_MOVE_COVERAGE=1 grunt",
     "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls"
   },

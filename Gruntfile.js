@@ -7,7 +7,29 @@ var os = require('os'),
 module.exports = function (grunt) {
 
   var coverage = process.env.GRUNT_MOVE_COVERAGE,
-      tmp = os.tmpdir();
+      tmp = os.tmpdir(),
+      succeedingTasks = [
+        'move:empty', 'move:missing', 'move:rename', 'move:move_with_rename',
+        'move:move_without_rename', 'move:move_more',
+        'move:move_with_wildcard', 'move:move_with_wildcard_and_cwd',
+        'move:move_directory', 'move:move_across_volumes'
+      ],
+      failingTasks = [
+        'move:failed_empty', 'move:failed_missing',
+        'move:failed_invalid_destination'
+      ],
+      failingWarnings = [
+        'No files or directories specified.',
+        'No files or directories found at ' +
+          chalk.cyan('test/work/missing/old') + '.',
+        'Moving failed.'
+      ],
+      tasks;
+
+  if (!process.env.TRAVIS) {
+    failingTasks.push('move:failed_move_across_volumes');
+    failingWarnings.push('Moving files across devices has not been enabled.');
+  }
 
   require('time-grunt')(grunt);
 
@@ -103,13 +125,7 @@ module.exports = function (grunt) {
 
     'continue:check-warnings': {
       test: {
-        warnings: [
-          'No files or directories specified.',
-          'No files or directories found at ' +
-              chalk.cyan('test/work/missing/old') + '.',
-          'Moving files across devices has not been enabled.',
-          'Moving failed.'
-        ]
+        warnings: failingWarnings
       }
     },
 
@@ -170,22 +186,19 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-coveralls');
   grunt.loadNpmTasks('grunt-istanbul');
 
-  grunt.registerTask('default', coverage ?
-    ['jshint', 'clean', 'instrument', 'copy',
-     'move:empty', 'move:missing', 'move:rename', 'move:move_with_rename',
-     'move:move_without_rename', 'move:move_more', 'move:move_with_wildcard',
-     'move:move_with_wildcard_and_cwd', 'move:move_directory',
-     'move:move_across_volumes', 'continue:on', 'move:failed_empty',
-     'move:failed_missing', 'move:failed_invalid_destination',
-     'move:failed_move_across_volumes', 'continue:off',
-     'continue:check-warnings', 'nodeunit', 'storeCoverage', 'makeReport'] :
-    ['jshint', 'clean:tests', 'copy',
-     'move:empty', 'move:missing', 'move:rename', 'move:move_with_rename',
-     'move:move_without_rename', 'move:move_more', 'move:move_with_wildcard',
-     'move:move_with_wildcard_and_cwd', 'move:move_directory',
-     'move:move_across_volumes', 'continue:on', 'move:failed_empty',
-     'move:failed_missing', 'move:failed_invalid_destination',
-     'move:failed_move_across_volumes', 'continue:off',
-     'continue:check-warnings', 'nodeunit']);
+  tasks = ['copy'].concat(succeedingTasks)
+                  .concat(['continue:on'])
+                  .concat(failingTasks)
+                  .concat(['continue:off', 'continue:check-warnings',
+                           'nodeunit']);
+  if (coverage) {
+    tasks = ['clean', 'instrument'].concat(tasks)
+                                   .concat(['storeCoverage', 'makeReport']);
+  } else {
+    tasks = ['clean:tests'].concat(tasks);
+  }
+  tasks = ['jshint'].concat(tasks);
+
+  grunt.registerTask('default', tasks);
 
 };
