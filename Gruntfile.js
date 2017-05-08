@@ -1,6 +1,7 @@
 'use strict';
 
-var os = require('os'),
+var fs = require('fs'),
+    os = require('os'),
     path = require('path'),
     chalk = require('chalk');
 
@@ -9,10 +10,12 @@ module.exports = function (grunt) {
   var coverage = process.env.GRUNT_MOVE_COVERAGE,
       tmp = os.tmpdir(),
       succeedingTasks = [
-        'move:empty', 'move:missing', 'move:rename', 'move:move_with_rename',
-        'move:move_without_rename', 'move:move_more',
-        'move:move_with_wildcard', 'move:move_with_wildcard_and_cwd',
-        'move:move_directory', 'move:move_across_volumes'
+        'move:empty', 'move:missing', 'move:rename',
+        'move:move_with_rename', 'move:move_without_rename',
+        'move:move_more', 'move:move_with_wildcard',
+        'move:move_with_wildcard_and_cwd', 'move:move_directory',
+        'move:move_across_volumes', 'move:rename_multiple',
+        'move:move_multiple'
       ],
       failingTasks = [
         'move:failed_empty', 'move:failed_missing',
@@ -107,6 +110,31 @@ module.exports = function (grunt) {
         src: 'test/work/move_across_volumes/file',
         dest: path.join(tmp, 'grunt-move/file')
       },
+      rename_multiple: {
+        files: [
+          {
+            src: 'test/work/rename_multiple/first',
+            dest: 'test/work/rename_multiple/third'
+          },
+          {
+            src: 'test/work/rename_multiple/second',
+            dest: 'test/work/rename_multiple/fourth'
+          }
+        ]
+      },
+      move_multiple: {
+        files: [
+          {
+            src: ['test/work/move_multiple/source1/first',
+                  'test/work/move_multiple/source1/second'],
+            dest: 'test/work/move_multiple/target1/'
+          },
+          {
+            src: 'test/work/move_multiple/source2/*',
+            dest: 'test/work/move_multiple/target2/'
+          }
+        ]
+      },
       failed_empty: {
       },
       failed_missing: {
@@ -176,7 +204,8 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.loadTasks(coverage ? 'coverage/tasks' : 'tasks');
+  grunt.loadTasks(coverage && fs.existsSync('coverage/tasks') ?
+                  'coverage/tasks' : 'tasks');
 
   grunt.loadNpmTasks('grunt-continue');
   grunt.loadNpmTasks('grunt-contrib-clean');

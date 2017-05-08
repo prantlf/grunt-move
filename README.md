@@ -6,7 +6,7 @@ This module provides a grunt multi-task for moving and renaming files and direct
 
 ## Installation
 
-You need [node >= 0.10][node], [npm] and [grunt >= 0.4][Grunt] installed
+You need [node >= 4][node], [npm] and [grunt >= 1][Grunt] installed
 and your project build managed by a [Gruntfile] with the necessary modules
 listed in [package.json].  If you haven't used Grunt before, be sure to
 check out the [Getting Started] guide, as it explains how to create a
@@ -147,6 +147,31 @@ other tasks then.
       },
       src: 'test/work/move_across_volumes/file',
       dest: '/tmp/grunt-move/file'
+    },
+    rename_multiple: {
+      files: [
+        {
+          src: 'test/work/rename_multiple/first',
+          dest: 'test/work/rename_multiple/third'
+        },
+        {
+          src: 'test/work/rename_multiple/second',
+          dest: 'test/work/rename_multiple/fourth'
+        }
+      ]
+    },
+    move_multiple: {
+      files: [
+        {
+          src: ['test/work/move_more/source1/first',
+                'test/work/move_more/source1/second'],
+          dest: 'test/work/move_more/target1/'
+        },
+        {
+          src: 'test/work/move_more/source2/*',
+          dest: 'test/work/move_more/target2/'
+        }
+      ]
     }
   }
 });
@@ -160,6 +185,7 @@ your code using Grunt.
 
 ## Release History
 
+ * 2017-05-09   v0.1.0   Move multiple files in the scope of one task
  * 2017-04-09   v0.0.6   Fix async dependency
  * 2017-01-15   v0.0.2-5 Improve documentation
  * 2017-01-15   v0.0.1   Initial release
