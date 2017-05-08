@@ -1,7 +1,7 @@
 {
   "name": "grunt-move",
   "description": "Grunt task for moving and renaming files and directories",
-  "version": "0.0.6",
+  "version": "0.0.0-development",
   "homepage": "https://github.com/prantlf/grunt-move",
   "author": {
     "name": "Ferdinand Prantl",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/prantlf/grunt-move.git"
+    "url": "https://github.com/prantlf/grunt-move.git"
   },
   "bugs": {
     "url": "https://github.com/prantlf/grunt-move/issues"
@@ -29,7 +29,8 @@
   "scripts": {
     "test": "grunt",
     "check_coverage": "GRUNT_MOVE_COVERAGE=1 grunt",
-    "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls"
+    "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "async": "~2.4.0",
@@ -38,14 +39,15 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-continue": "git://github.com/prantlf/grunt-continue.git",
-    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "grunt-coveralls": "^1.0.1",
     "grunt-istanbul": "^0.7.2",
     "jshint-stylish": "^2.2.1",
-    "time-grunt": "^1.4.0"
+    "time-grunt": "^1.4.0",
+    "semantic-release": "^6.3.6"
   },
   "keywords": [
     "gruntplugin",
