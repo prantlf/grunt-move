@@ -185,6 +185,7 @@ your code using Grunt.
 
 ## Release History
 
+ * 2017-11-08   v0.1.3   Upgrade npm module dependencies
  * 2017-05-09   v0.1.0   Move multiple files in the scope of one task
  * 2017-04-09   v0.0.6   Fix async dependency
  * 2017-01-15   v0.0.2-5 Improve documentation
