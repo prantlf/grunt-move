@@ -207,7 +207,7 @@ module.exports = function (grunt) {
   grunt.loadTasks(coverage && fs.existsSync('coverage/tasks') ?
                   'coverage/tasks' : 'tasks');
 
-  grunt.loadNpmTasks('grunt-continue');
+  grunt.loadNpmTasks('grunt-continue-ext');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
