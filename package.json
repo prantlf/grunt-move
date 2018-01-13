@@ -47,7 +47,7 @@
     "grunt-istanbul": "^0.8.0",
     "jshint-stylish": "^2.2.1",
     "time-grunt": "^1.4.0",
-    "semantic-release": "^11.0.2"
+    "semantic-release": "^12.2.2"
   },
   "keywords": [
     "gruntplugin",
