@@ -30,14 +30,15 @@
     "test": "grunt",
     "check_coverage": "GRUNT_MOVE_COVERAGE=1 grunt",
     "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
     "async": "~2.6.0",
-    "chalk": "^2.3.0"
+    "chalk": "^2.4.1"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.2",
     "grunt-continue-ext": "^1.0.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
@@ -47,7 +48,8 @@
     "grunt-istanbul": "^0.8.0",
     "jshint-stylish": "^2.2.1",
     "time-grunt": "^1.4.0",
-    "semantic-release": "^15.0.0"
+    "semantic-release": "^15.1.7",
+    "travis-deploy-once": "^4.4.1"
   },
   "keywords": [
     "gruntplugin",

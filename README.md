@@ -185,6 +185,7 @@ your code using Grunt.
 
 ## Release History
 
+ * 2018-04-27   v1.0.0   Dropped support of Node.js 4
  * 2017-11-08   v0.1.3   Upgrade npm module dependencies
  * 2017-05-09   v0.1.0   Move multiple files in the scope of one task
  * 2017-04-09   v0.0.6   Fix async dependency
@@ -193,7 +194,7 @@ your code using Grunt.
 
 ## License
 
-Copyright (c) 2017 Ferdinand Prantl
+Copyright (c) 2017-2018 Ferdinand Prantl
 
 Licensed under the MIT license.
 
