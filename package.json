@@ -48,7 +48,7 @@
     "grunt-istanbul": "^0.8.0",
     "jshint-stylish": "^2.2.1",
     "time-grunt": "^1.4.0",
-    "semantic-release": "^15.1.7",
+    "semantic-release": "^15.5.2",
     "travis-deploy-once": "^5.0.0"
   },
   "keywords": [
