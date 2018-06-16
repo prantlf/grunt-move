@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         'No files or directories specified.',
         'No files or directories found at ' +
           chalk.cyan('test/work/missing/old') + '.',
-        'Moving failed.'
+        'Error: Unable to create directory "test/work/failed_invalid_destination/blocked" (Error code: EEXIST).'
       ],
       tasks;
 
@@ -143,7 +143,7 @@ module.exports = function (grunt) {
       },
       failed_invalid_destination: {
         src: 'test/work/failed_invalid_destination/file',
-        dest: 'test/work/failed_invalid_destination/:*?\\//file',
+        dest: 'test/work/failed_invalid_destination/blocked/file',
       },
       failed_move_across_volumes: {
         src: 'test/work/failed_move_across_volumes/file',
