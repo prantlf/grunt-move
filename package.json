@@ -34,11 +34,11 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "async": "~2.6.0",
+    "async": "~2.6.1",
     "chalk": "^2.4.1"
   },
   "devDependencies": {
-    "grunt": "^1.0.2",
+    "grunt": "^1.0.3",
     "grunt-continue-ext": "^2.0.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
@@ -47,8 +47,8 @@
     "grunt-coveralls": "^2.0.0",
     "grunt-istanbul": "^0.8.0",
     "jshint-stylish": "^2.2.1",
+    "semantic-release": "^15.5.4",
     "time-grunt": "^1.4.0",
-    "semantic-release": "^15.1.7",
     "travis-deploy-once": "^5.0.0"
   },
   "keywords": [
