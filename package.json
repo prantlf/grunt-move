@@ -32,15 +32,15 @@
     "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls"
   },
   "dependencies": {
-    "async": "~2.6.2",
+    "async": "~3.0.1",
     "chalk": "^2.4.2"
   },
   "devDependencies": {
-    "grunt": "^1.0.3",
+    "grunt": "^1.0.4",
     "grunt-continue-ext": "^2.0.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-coveralls": "^2.0.0",
     "grunt-istanbul": "^0.8.0",
