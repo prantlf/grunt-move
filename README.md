@@ -9,7 +9,7 @@ This module provides a grunt multi-task for moving and renaming files and direct
 
 ## Installation
 
-You need [node >= 4][node], [npm] and [grunt >= 1][Grunt] installed
+You need [node >= 10][node], [npm] and [grunt >= 1][Grunt] installed
 and your project build managed by a [Gruntfile] with the necessary modules
 listed in [package.json].  If you haven't used Grunt before, be sure to
 check out the [Getting Started] guide, as it explains how to create a
