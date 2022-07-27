@@ -1,7 +1,7 @@
 {
   "name": "grunt-move",
   "description": "Grunt task for moving and renaming files and directories",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "homepage": "https://github.com/prantlf/grunt-move",
   "author": {
     "name": "Ferdinand Prantl",

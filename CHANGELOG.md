@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/prantlf/grunt-move/compare/v1.0.3...v2.0.0) (2022-07-27)
+
+
+### Bug Fixes
+
+* Replace chalk with colorette, modernise ([e1dee8a](https://github.com/prantlf/grunt-move/commit/e1dee8a50c79582b9077bd52c3885f226f78d81d))
+
+
+### BREAKING CHANGES
+
+* Dropped support of Node.js 6. Node.js 10 or newer is required. (Needed by colorette.)
+
 ## [1.0.3](https://github.com/prantlf/grunt-move/compare/v1.0.2...v1.0.3) (2019-09-24)
 
 ### Bug Fixes
