@@ -1,7 +1,7 @@
 {
   "name": "grunt-move",
   "description": "Grunt task for moving and renaming files and directories",
-  "version": "0.0.0-development",
+  "version": "1.0.3",
   "homepage": "https://github.com/prantlf/grunt-move",
   "author": {
     "name": "Ferdinand Prantl",
@@ -23,27 +23,59 @@
     }
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=10"
   },
   "main": "tasks/move.js",
+  "files": [
+    "tasks"
+  ],
   "scripts": {
-    "test": "grunt",
-    "check_coverage": "GRUNT_MOVE_COVERAGE=1 grunt",
-    "post_coverage": "GRUNT_MOVE_COVERAGE=1 grunt default coveralls"
+    "check": "grunt",
+    "test": "c8 grunt"
+  },
+  "c8": {
+    "check-coverage": true,
+    "include": [
+      "tasks/move.js"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "failComment": false
+        }
+      ],
+      "@semantic-release/git"
+    ]
   },
   "dependencies": {
     "async": "~3.2.4",
-    "chalk": "^4.1.2"
+    "colorette": "^2.0.19"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "c8": "^7.12.0",
     "grunt": "^1.5.3",
     "grunt-continue-ext": "^2.0.0",
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-nodeunit": "^4.0.0",
-    "grunt-coveralls": "^2.0.0",
-    "grunt-istanbul": "^0.8.0",
     "jshint-stylish": "^2.2.1",
     "time-grunt": "^2.0.0"
   },
@@ -55,8 +87,5 @@
     "file",
     "folder",
     "filesystem"
-  ],
-  "files": [
-    "tasks"
   ]
 }

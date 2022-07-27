@@ -5,7 +5,6 @@ var grunt = require('grunt'),
     path = require('path');
 
 exports.move = {
-
   empty: function (test) {
     test.expect(1);
     test.ok(true, 'No input produces no output');
@@ -136,5 +135,4 @@ exports.move = {
         'Fourth file is moved to other directory');
     test.done();
   }
-
 };

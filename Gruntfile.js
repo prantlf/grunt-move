@@ -1,14 +1,11 @@
 'use strict';
 
-var fs = require('fs'),
-    os = require('os'),
+var os = require('os'),
     path = require('path'),
-    chalk = require('chalk');
+    colorette = require('colorette');
 
 module.exports = function (grunt) {
-
-  var coverage = process.env.GRUNT_MOVE_COVERAGE,
-      tmp = os.tmpdir(),
+  var tmp = os.tmpdir(),
       succeedingTasks = [
         'move:empty', 'move:missing', 'move:rename',
         'move:move_with_rename', 'move:move_without_rename',
@@ -24,12 +21,12 @@ module.exports = function (grunt) {
       failingWarnings = [
         'No files or directories specified.',
         'No files or directories found at ' +
-          chalk.cyan('test/work/missing/old') + '.',
+        colorette.cyan('test/work/missing/old') + '.',
         'Error: Unable to create directory "test/work/failed_invalid_destination/blocked" (Error code: EEXIST).'
       ],
       tasks;
 
-  if (!process.env.TRAVIS) {
+  if (false) {
     failingTasks.push('move:failed_move_across_volumes');
     failingWarnings.push('Moving files across devices has not been enabled.');
   }
@@ -37,7 +34,6 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   grunt.initConfig({
-
     jshint: {
       all:     [
         'Gruntfile.js',
@@ -158,54 +154,16 @@ module.exports = function (grunt) {
     },
 
     nodeunit: {
-      tests:   ['test/*_test.js'],
-      options: {
-        reporter: coverage ? 'lcov' : 'verbose',
-        reporterOutput: coverage ? 'coverage/tests.lcov' : undefined
-      }
+      tests: ['test/*_test.js']
     },
 
     clean: {
-      options: {
-        force: true
-      },
-      tests:    ['test/work', path.join(tmp, 'grunt-move')],
-      coverage: ['coverage']
-    },
-
-    instrument: {
-      files: 'tasks/*.js',
-      options: {
-        lazy: true,
-        basePath: 'coverage/'
-      }
-    },
-
-    storeCoverage: {
-      options: {
-        dir: 'coverage'
-      }
-    },
-
-    makeReport: {
-      src: 'coverage/coverage.json',
-      options: {
-        type: 'lcov',
-        dir: 'coverage',
-        print: 'detail'
-      }
-    },
-
-    coveralls: {
-      tests: {
-        src: 'coverage/lcov.info'
-      }
+      options: { force: true },
+      tests: ['test/work', path.join(tmp, 'grunt-move')]
     }
-
   });
 
-  grunt.loadTasks(coverage && fs.existsSync('coverage/tasks') ?
-                  'coverage/tasks' : 'tasks');
+  grunt.loadTasks('tasks');
 
   grunt.loadNpmTasks('grunt-continue-ext');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -215,19 +173,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-coveralls');
   grunt.loadNpmTasks('grunt-istanbul');
 
-  tasks = ['copy'].concat(succeedingTasks)
-                  .concat(['continue:on'])
-                  .concat(failingTasks)
-                  .concat(['continue:off', 'continue:check-warnings',
-                           'nodeunit']);
-  if (coverage) {
-    tasks = ['clean', 'instrument'].concat(tasks)
-                                   .concat(['storeCoverage', 'makeReport']);
-  } else {
-    tasks = ['clean:tests'].concat(tasks);
-  }
-  tasks = ['jshint'].concat(tasks);
+  tasks = ['jshint', 'clean', 'copy']
+    .concat(succeedingTasks)
+    .concat(['continue:on'])
+    .concat(failingTasks)
+    .concat(['continue:off', 'continue:check-warnings', 'nodeunit']);
 
   grunt.registerTask('default', tasks);
-
 };

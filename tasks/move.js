@@ -1,7 +1,7 @@
 // grunt-move
 // https://github.com/prantlf/grunt-move
 //
-// Copyright (c) 2017 Ferdinand Prantl
+// Copyright (c) 2017-2022 Ferdinand Prantl
 // Licensed under the MIT license.
 //
 // Grunt task for moving and renaming files and directories
@@ -10,11 +10,10 @@
 
 var fs = require('fs'),
     path = require('path'),
-    chalk = require('chalk'),
+    colorette = require('colorette'),
     async = require('async');
 
 module.exports = function (grunt) {
-
   grunt.registerMultiTask('move', 'Moves and renames files and directories.', function () {
     var done = this.async(),
         options = this.options({
@@ -36,7 +35,7 @@ module.exports = function (grunt) {
       if (!file.src.length) {
         if (!options.ignoreMissing) {
           grunt.fail.warn('No files or directories found at ' +
-              chalk.cyan(file.orig.src) + '.');
+            colorette.cyan(file.orig.src) + '.');
         }
         return allDone();
       }
@@ -57,21 +56,22 @@ module.exports = function (grunt) {
         grunt.file.mkdir(dir);
 
         if (dir === path.dirname(src)) {
-          grunt.verbose.writeln('Renaming ' + chalk.cyan(src) + ' to ' +
-              chalk.cyan(path.basename(dest)) + '.');
+          grunt.verbose.writeln('Renaming ' + colorette.cyan(src) + ' to ' +
+            colorette.cyan(path.basename(dest)) + '.');
         } else {
-          grunt.verbose.writeln('Moving ' + chalk.cyan(src) + ' to ' +
-              chalk.cyan(dest) + '.');
+          grunt.verbose.writeln('Moving ' + colorette.cyan(src) + ' to ' +
+            colorette.cyan(dest) + '.');
         }
 
         fs.rename(src, dest, function (err) {
+          /* c8 ignore next 21 */
           if (err) {
             if (err.code === 'EXDEV') {
               if (options.moveAcrossVolumes) {
-                grunt.verbose.writeln('Copying ' + chalk.cyan(src) + ' across devices.');
+                grunt.verbose.writeln('Copying ' + colorette.cyan(src) + ' across devices.');
                 grunt.file.copy(src, dest);
 
-                grunt.verbose.writeln('Deleting ' + chalk.cyan(src) + '.');
+                grunt.verbose.writeln('Deleting ' + colorette.cyan(src) + '.');
                 grunt.file.delete(src);
                 ++moved;
               } else {
@@ -103,5 +103,4 @@ module.exports = function (grunt) {
       done(err);
     });
   });
-
 };
