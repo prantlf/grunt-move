@@ -1,9 +1,9 @@
 # grunt-move
 
-[![Latest version](https://img.shields.io/npm/v/grunt-moves)
- ![Dependency status](https://img.shields.io/librariesio/release/npm/grunt-moves)
-](https://www.npmjs.com/package/grunt-moves)
-[![Coverage](https://codecov.io/gh/prantlf/grunt-moves/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/grunt-moves)
+[![Latest version](https://img.shields.io/npm/v/grunt-move)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/grunt-move)
+](https://www.npmjs.com/package/grunt-move)
+[![Coverage](https://codecov.io/gh/prantlf/grunt-move/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/grunt-move)
 
 This module provides a grunt multi-task for moving and renaming files and directories.
 
