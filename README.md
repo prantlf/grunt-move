@@ -1,16 +1,9 @@
 # grunt-move
-[![NPM version](https://badge.fury.io/js/grunt-move.png)](http://badge.fury.io/js/grunt-move)
-[![Build Status](https://travis-ci.org/prantlf/grunt-move.png)](https://travis-ci.org/prantlf/grunt-move)
-[![Coverage Status](https://coveralls.io/repos/prantlf/grunt-move/badge.svg)](https://coveralls.io/r/prantlf/grunt-move)
-[![Dependency Status](https://david-dm.org/prantlf/grunt-move.svg)](https://david-dm.org/prantlf/grunt-move)
-[![devDependency Status](https://david-dm.org/prantlf/grunt-move/dev-status.svg)](https://david-dm.org/prantlf/grunt-move#info=devDependencies)
-[![devDependency Status](https://david-dm.org/prantlf/grunt-move/peer-status.svg)](https://david-dm.org/prantlf/grunt-move#info=peerDependencies)
-[![Code Climate](https://codeclimate.com/github/prantlf/grunt-move/badges/gpa.svg)](https://codeclimate.com/github/prantlf/grunt-move)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bf5a6830b3664bf987fdbb7aca2c3d14)](https://www.codacy.com/app/prantlf/grunt-move?utm_source=github.com&utm_medium=referral&utm_content=prantlf/grunt-move&utm_campaign=badger)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-[![NPM Downloads](https://nodei.co/npm/grunt-move.png?downloads=true&stars=true)](https://www.npmjs.com/package/grunt-move)
+[![Latest version](https://img.shields.io/npm/v/grunt-moves)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/grunt-moves)
+](https://www.npmjs.com/package/grunt-moves)
+[![Coverage](https://codecov.io/gh/prantlf/grunt-moves/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/grunt-moves)
 
 This module provides a grunt multi-task for moving and renaming files and directories.
 
@@ -193,18 +186,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding
 style.  Add unit tests for any new or changed functionality. Lint and test
 your code using Grunt.
 
-## Release History
-
- * 2018-04-27   v1.0.0   Dropped support of Node.js 4
- * 2017-11-08   v0.1.3   Upgrade npm module dependencies
- * 2017-05-09   v0.1.0   Move multiple files in the scope of one task
- * 2017-04-09   v0.0.6   Fix async dependency
- * 2017-01-15   v0.0.2-5 Improve documentation
- * 2017-01-15   v0.0.1   Initial release
-
 ## License
 
-Copyright (c) 2017-2019 Ferdinand Prantl
+Copyright (c) 2017-2022 Ferdinand Prantl
 
 Licensed under the MIT license.
 
